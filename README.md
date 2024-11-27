@@ -9,4 +9,4 @@ Segundo criamos uma rota que confirma esse tipo de pagamento para a instituiçã
 ## Terceira Rota
 Essa é a rota de confirmação do pagamento do qrcode para o usuário, manifestada na função: **payment_pix_page(payment_id)**, na rota eu passo um parâmetro (payment_id) que é o mesmo dentro da função.
 
-![Screenshot teste da terceira rota](https://prnt.sc/00_bpRtWcEnx)
+
