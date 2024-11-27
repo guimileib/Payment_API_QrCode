@@ -11,3 +11,12 @@ def create_payment_pix():
 @app.route('/payments/pix/confirmation', methods=['POST'])
 def pix_confirmation():
     return jsonify({"message": "The payment has been confirmed"})
+
+#vizualização do qrcode -> user vai saber em tempo real do pagento
+@app.route('/payments/pix/<int:paymentos_id>', methods=['GET'])
+def payments_pix_page(payment_id):
+    return 'pagamento pix'
+
+#colocar para rodar, executa o sistema numa eventual importação
+if __name__ == '__main__':
+    app.run(debug=True)
