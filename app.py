@@ -45,7 +45,14 @@ def get_image(file_name):
 #vizualização do qrcode -> user vai saber em tempo real do pagento | retorno na página 
 @app.route('/payments/pix/<int:payment_id>', methods=['GET'])
 def payment_pix_page(payment_id):
-    return render_template('payment.html') 
+    payment = Payment.query.get(payment_id) # usa o payment_id para identificar o registro la no banco de dados
+
+    # Passando parâmetros do da classe Payment em payment.py
+    return render_template('payment.html',  
+                           payment_id=payment.id,   
+                           value=payment.value,     
+                           host="http://127.0.0.1:5000",    
+                           qr_code=payment.qr_code) 
 
 #colocar para rodar, executa o sistema numa eventual importação
 if __name__ == '__main__':
