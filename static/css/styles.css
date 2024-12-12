@@ -59,7 +59,7 @@ main header aside {
 }
 
 main header aside h1 {
-  color: #4551e6;
+  color: #1a025e;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -150,7 +150,7 @@ body main footer {
 }
 
 #expiration-time header div span {
-  color: #4551e6;
+  color: #1a025e;
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -180,7 +180,7 @@ body main footer {
 }
 
 #order>div span {
-  color: #4551e6;
+  color: #1a025e;
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -221,7 +221,7 @@ body main footer {
   margin-right: 12px;
   width: 45% !important;
   height: 46px !important;
-  background: #4551E6;
+  background: #1a025e;
   border-radius: 10px;
   font-weight: 600;
   font-size: 14px;

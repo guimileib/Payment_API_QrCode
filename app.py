@@ -54,6 +54,7 @@ def pix_confirmation():
 
     payment.paid = True
     db.session.commit() #realiza uma atualização no banco de dados
+    socketio.emit(f'payment-confirmed-{payment.id}') # emite uma notiicações para todos os clientes conectados
     return jsonify({"message": "The payment has been confirmed"})
 
 @app.route('/payments/pix/qr_code/<file_name>', methods=["GET"])
@@ -65,7 +66,15 @@ def get_image(file_name):
 def payment_pix_page(payment_id):
     payment = Payment.query.get(payment_id) # usa o payment_id para identificar o registro la no banco de dados
 
-    # Passando parâmetros do da classe Payment em payment.py
+    if not payment:
+        return render_template('404.html')
+    
+    # Carrega template de tela de confirmação, passo os parâmetros que deveram ser carregados em forma de tag no codigo
+    if payment.paid:
+        return render_template('confirmed_payment.html',    
+                               payment_id=payment.id,
+                               value=payment.value)
+    # Passando parâmetros do da classe Payment em payment.py ao carregar a tela de pagamento
     return render_template('payment.html',  
                            payment_id=payment.id,   
                            value=payment.value,     
@@ -76,6 +85,10 @@ def payment_pix_page(payment_id):
 @socketio.on('connect') # evento do cliente conectar com aplicação
 def handle_connect():
     print("Client connected to the server")
+
+@socketio.on('disconnect')
+def hadle_disconnect():
+    print("Client has disconnected to the server")
 
 #colocar para rodar, executa o sistema numa eventual importação
 if __name__ == '__main__':
