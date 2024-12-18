@@ -92,4 +92,4 @@ def hadle_disconnect():
 
 #colocar para rodar, executa o sistema numa eventual importação
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True)   
