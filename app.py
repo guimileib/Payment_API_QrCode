@@ -90,6 +90,6 @@ def handle_connect():
 def hadle_disconnect():
     print("Client has disconnected to the server")
 
-#colocar para rodar, executa o sistema numa eventual importação
+# Colocar para rodar, executa o sistema numa eventual importação
 if __name__ == '__main__':
     socketio.run(app, debug=True)   
